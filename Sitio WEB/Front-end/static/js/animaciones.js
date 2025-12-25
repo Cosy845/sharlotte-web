@@ -54,39 +54,34 @@ interactiveElements.forEach(el => {
 });
 
 // ================================================
-// 2️⃣ CONFIGURACIÓN SCROLLREVEAL (MÁS RÁPIDO ⚡)
+// 2️⃣ BOTONES MAGNÉTICOS
 // ================================================
-const sr = ScrollReveal({
-    origin: 'bottom',   // Las cosas suben
-    distance: '30px',   // Distancia más corta (más rápido)
-    duration: 800,      // 0.8 segundos (antes era mucho más)
-    delay: 100,         // Espera inicial mínima
-    easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)', // Movimiento fluido
-    reset: false        // IMPORTANTE: No se repite al subir (mejora rendimiento)
+const magneticButtons = document.querySelectorAll('.btn, .carousel-btn, .whatsapp-float');
+
+magneticButtons.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0)';
+    });
 });
 
-// --- APARICIÓN INMEDIATA DEL BANNER (PRIORIDAD ALTA) ---
-// Hacemos que el texto principal aparezca casi de inmediato
-sr.reveal('.hero-content h1', { delay: 100, origin: 'left' });
-sr.reveal('.hero-content p', { delay: 300, origin: 'left' });
-sr.reveal('.hero-buttons', { delay: 500, origin: 'bottom' });
-
 // ================================================
-// 3️⃣ PRELOADER BLINDADO (SOLUCIÓN "PANTALLA PEGADA") 🛡️
+// 3️⃣ PRELOADER
 // ================================================
-const hidePreloader = () => {
+window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
-    if (preloader) {
+    setTimeout(() => {
         preloader.style.opacity = '0';
         preloader.style.visibility = 'hidden';
-    }
-};
-
-// Intento 1: Cuando todo carga perfecto
-window.addEventListener('load', hidePreloader);
-
-// Intento 2 (SEGURIDAD): Si a los 2.5 segundos no ha cargado, abre a la fuerza
-setTimeout(hidePreloader, 2500);
+    }, 800);
+});
 
 // ================================================
 // 4️⃣ HEADER GLASSMORPHISM + PARALLAX HERO
