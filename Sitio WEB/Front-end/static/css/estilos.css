@@ -829,8 +829,10 @@ body.cursor-hover .cursor-dot {
    CONTACT SECTION (SOLUCIÓN FINAL: STRETCH + FLEX GROW) 🏆
    ========================================================================= */
 .contact {
-    background: linear-gradient(135deg, var(--color-bg-soft) 0%, #ffffff 100%);
-    padding: 100px 0;
+    /* CAMBIO: Fondo igual al de la galería para que no se vea el corte */
+    background: var(--color-bg-soft); 
+    /* Reducimos el padding de arriba para cerrar el hueco visual */
+    padding: 40px 0 100px 0; 
 }
 
 .contact-wrapper {
@@ -1552,6 +1554,14 @@ body.cursor-hover .cursor-dot {
     .carousel {
         height: 300px !important; /* Altura ideal para celular */
         border-radius: 15px;
+    }
+
+    /* UNIFICAR GALERÍA Y CONTACTO EN MÓVIL */
+    .gallery {
+        padding-bottom: 0 !important; /* Quita el espacio abajo de la galería */
+    }
+    .contact {
+        padding-top: 20px !important; /* Pega el contacto arriba */
     }
     
     /* 2. FOTOS DE SERVICIOS */

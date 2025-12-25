@@ -72,15 +72,21 @@ sr.reveal('.hero-content p', { delay: 300, origin: 'left' });
 sr.reveal('.hero-buttons', { delay: 500, origin: 'bottom' });
 
 // ================================================
-// 3️⃣ PRELOADER
+// 3️⃣ PRELOADER BLINDADO (SOLUCIÓN "PANTALLA PEGADA") 🛡️
 // ================================================
-window.addEventListener('load', () => {
+const hidePreloader = () => {
     const preloader = document.getElementById('preloader');
-    setTimeout(() => {
+    if (preloader) {
         preloader.style.opacity = '0';
         preloader.style.visibility = 'hidden';
-    }, 800);
-});
+    }
+};
+
+// Intento 1: Cuando todo carga perfecto
+window.addEventListener('load', hidePreloader);
+
+// Intento 2 (SEGURIDAD): Si a los 2.5 segundos no ha cargado, abre a la fuerza
+setTimeout(hidePreloader, 2500);
 
 // ================================================
 // 4️⃣ HEADER GLASSMORPHISM + PARALLAX HERO
