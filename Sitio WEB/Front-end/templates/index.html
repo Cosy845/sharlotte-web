@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Sharlotte Styles - Salón de belleza en Torres de Comfandi, Cali. Especialistas en Keratina, Alisados, Uñas Acrílicas y Maquillaje Profesional. Atención 24/7.">
+    <meta name="keywords" content="salon de belleza cali, keratina torres de comfandi, uñas acrilicas cali norte, alisados cali, maquillaje profesional cali, barbería, sharlotte styles">
+    <meta name="author" content="Sharlotte Styles">
+    <meta name="robots" content="index, follow">
+    
+    <meta name="geo.region" content="CO-VC">
+    <meta name="geo.placename" content="Cali">
+    <meta name="geo.position" content="3.4734;-76.5056">
+    <meta name="ICBM" content="3.4734, -76.5056">
+
+    <title>Sharlotte Styles</title>
+    
+    
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+
+    <!-- FONTAWESOME CDN (OBLIGATORIO) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}?v=1.1">
+</head>
+<body>
+    <!-- CURSOR PERSONALIZADO -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-circle"></div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast">
+        <i class="fab fa-whatsapp"></i>
+        <span>¡Redirigiendo a WhatsApp...</span>
+    </div>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-icon"><i class="fas fa-crown"></i></div>
+            <div class="loader-text">SHARLOTTE</div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- LOGO CON ENLACE (CORRECCIÓN CRÍTICA) -->
+                <a href="#hero" class="logo">
+                    <div class="logo-main">Sharlotte</div>
+                    <div class="logo-sub">Styles</div>
+                </a>
+                
+                <nav class="nav" id="nav">
+                    <ul class="nav-list">
+                        <li><a href="#about" class="nav-link">Nosotros</a></li>
+                        <li><a href="#services" class="nav-link">Servicios</a></li>
+                        <li><a href="#gallery" class="nav-link">Galería</a></li>
+                        <li><a href="#contact" class="nav-link">Contacto</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80" alt="Salón de belleza" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-crown"><i class="fas fa-crown"></i></div>
+            <h1 class="hero-title">Tu belleza es nuestra corona</h1>
+            <p class="hero-subtitle">Servicio exclusivo 24/7 en Cali. Porque el estilo no tiene horario.</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-calendar-check"></i> Agendar Cita
+                </a>
+                <a href="#services" class="btn btn-outline">
+                    <i class="fas fa-star"></i> Descubre Servicios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about section reveal" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-card">
+                    <h2 class="about-title">Nuestra Esencia</h2>
+                    <p class="about-text">
+                        No solo transformamos tu imagen, cultivamos seguridad, elegancia y amor propio. Cada visita es un ritual diseñado para que te desconectes del mundo y te reconectes contigo misma. Fusionamos técnicas de vanguardia internacional con la calidez latina. <span class="accent-text">✨ Más que estilo, creamos confianza. ✨</span> Más que un servicio, una experiencia de realeza.
+                    </p>
+                </div>
+                
+                <!-- CONTADORES -->
+                <div class="mindset" id="mindset">
+                    <div class="counter-item">
+                        <i class="fas fa-crown counter-icon"></i>
+                        <div class="counter-value">
+                            <span class="counter" data-target="500">0</span>
+                            <span class="counter-plus">+</span>
+                        </div>
+                        <p class="counter-label">Clientes VIP</p>
+                    </div>
+                    
+                    <div class="counter-item">
+                        <i class="fas fa-gem counter-icon"></i>
+                        <div class="counter-value">
+                            <span class="counter" data-target="15">0</span>
+                            <span class="counter-plus">+</span>
+                        </div>
+                        <p class="counter-label">Años de Excelencia</p>
+                    </div>
+                    
+                    <div class="counter-item">
+                        <i class="fas fa-clock counter-icon"></i>
+                        <div class="counter-value">
+                            <span class="counter" data-target="24">0</span>
+                            <span class="counter-plus">/7</span>
+                        </div>
+                        <p class="counter-label">Horas de Atención</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS SECTION -->
+    <section class="services section reveal" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Servicios Premium</h2>
+                <div class="title-underline"></div>
+                <p class="section-description">Diseñados para realzar tu mejor versión</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- CABELLO -->
+                <div class="service-card">
+    <div class="service-image">
+        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=800&q=80" alt="Servicios de cabello">
+        <div class="service-overlay"><i class="fas fa-cut"></i></div>
+    </div>
+    <div class="service-body">
+        <h3 class="service-title">Cabello</h3>
+        <ul class="service-list">
+            <li><i class="fas fa-star"></i> Trenzas de Todo Tipo</li>
+            <li><i class="fas fa-star"></i> Alisados & Keratina</li>
+            <li><i class="fas fa-star"></i> Tratamientos Capilares</li>
+            <li><i class="fas fa-star"></i> Aplicación de Tintes</li>
+            <li><i class="fas fa-star"></i> Postura de Extensiones</li>
+            <li><i class="fas fa-star"></i> Definición de rizos</li>
+            <li><i class="fas fa-star"></i> Peinados Elegantes</li>
+        </ul>
+    </div>
+</div>
+
+<div class="service-card">
+    <div class="service-image">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80" alt="Servicios de manos y pies">
+        <div class="service-overlay"><i class="fas fa-spa"></i></div>
+    </div>
+    <div class="service-body">
+        <h3 class="service-title">Manos y Pies</h3>
+        <ul class="service-list">
+            <li><i class="fas fa-star"></i> Manicure & Pedicure</li>
+            <li><i class="fas fa-star"></i> Diseño de Uñas</li>
+            <li><i class="fas fa-star"></i> Tradicional, Dipping, Rubber</li>
+            <li><i class="fas fa-star"></i> Soft Gel & PolyGel</li>
+            <li><i class="fas fa-star"></i> Acrilicas (Baño/Esculpidas/Tip)</li>
+            <li><i class="fas fa-star"></i> Retiro de uñas</li>
+            <li><i class="fas fa-star"></i> Spa de Relajación</li>
+        </ul>
+    </div>
+</div>
+
+<div class="service-card">
+    <div class="service-image">
+        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&q=80" alt="Servicios de rostro">
+        <div class="service-overlay"><i class="fas fa-gem"></i></div>
+    </div>
+    <div class="service-body">
+        <h3 class="service-title">Rostro</h3>
+        <ul class="service-list">
+            <li><i class="fas fa-star"></i> Depilación con Cera</li>
+            <li><i class="fas fa-star"></i> Diseño de Cejas & Henna</li>
+            <li><i class="fas fa-star"></i> Pestañas de Todo Tipo</li>
+            <li><i class="fas fa-star"></i> Maquillaje Clásico</li>
+            <li><i class="fas fa-star"></i> Maquillaje Social & Boda>
+            <li><i class="fas fa-star"></i> Maquillaje Quinceañera</li>
+            <li><i class="fas fa-star"></i> Maquillaje Profesional</li>
+            
+            
+
+        </ul>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>
+
+ <section class="gallery section reveal" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Galería de Elegancia</h2>
+                <div class="title-underline"></div>
+                <p class="section-description">Resultados reales, belleza real</p>
+            </div>
+            
+            <div class="carousel">
+                <div class="carousel-slide active">
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=1200&q=80" 
+                         alt="Trabajo de belleza premium 1"
+                         loading="lazy"
+                         decoding="async">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=80" 
+                         alt="Trabajo de belleza premium 2"
+                         loading="lazy"
+                         decoding="async">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1200&q=80" 
+                         alt="Trabajo de belleza premium 3"
+                         loading="lazy"
+                         decoding="async">
+                </div>
+                
+                <button class="carousel-btn prev" id="prevBtn" aria-label="Ver imagen anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" id="nextBtn" aria-label="Ver siguiente imagen">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact section reveal" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Agenda tu Cita</h2>
+                <div class="title-underline"></div>
+                <p class="section-description">Completa el formulario y te atenderemos por WhatsApp inmediatamente</p>
+            </div>
+            
+                <div class="contact-wrapper">
+    <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-group">
+            <label for="name">Nombre Completo <span class="required">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Ej: Valentina Castro" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="service">Servicio Deseado <span class="required">*</span></label>
+            <select id="service" name="service" required>
+                <option value="">-- Selecciona un servicio --</option>
+                <option value="Keratina">Keratina</option>
+                <option value="Alisados">Alisados</option>
+                <option value="Extensiones">Postura de extensiones</option>
+                <option value="Tinte">Tinte de Cabello</option>
+                <option value="Tratamiento">Tratamiento Capilar</option>
+                <option value="Peinados">Peinados de Todo Tipo</option>
+                <option value="Trenzas">Trenzas de Todo Tipo</option>
+                <option value="Manicure">Manicure</option>
+                <option value="Pedicure">Pedicure</option>
+                <option value="Maquillaje">Maquillaje</option>
+                <option value="Depilacion">Depilación (Cera/Cuchilla)</option>
+                <option value="Otro">Otro Servicio</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="message">Mensaje (Opcional)</label>
+            <textarea id="message" name="message" placeholder="Cuéntanos qué necesitas..." rows="5"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">
+            <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+        </button>
+    </form>
+    
+    <div class="contact-info">
+        
+        <div class="info-card location-card">
+            <div class="location-header">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Ubicación</h3>
+            </div>
+            <p>Cali, Valle del Cauca, Colombia - Calle 59 #1c-125<br>Torres de Comfandi - Conjunto A - Torre 5 Apto 503</p>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://maps.google.com/maps?q=Calle+59+%231c-125+Cali+Torres+de+Comfandi&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <a href="https://maps.app.goo.gl/mbTFzVenvzN9P9jDA" target="_blank" class="map-link">Ver en Google Maps →</a>
+        </div>
+        
+        <div class="info-card">
+            <i class="fas fa-phone-alt"></i>
+            <h3>Teléfonos</h3>
+            <p><strong>Principal:</strong> +57 304 246 6814<br><strong>Secundaria:</strong> +57 305 352 7076</p>
+        </div>
+        
+        <div class="info-card premium">
+            <i class="fas fa-clock"></i>
+            <h3>Horarios</h3>
+            <p class="highlight-text">ATENCIÓN 24 HORAS</p>
+            <p>Disponibles todos los días</p>
+        </div>
+
+    </div>
+    </section>
+    
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        
+        <div class="container">
+            <div class="footer-content">
+<div class="footer-logo">
+    <div class="logo-main" style="font-size: 2.5rem;">Sharlotte</div>
+    <div class="logo-sub">Styles</div>
+    <p class="footer-signature">"Esculpiendo confianza, una cliente a la vez"</p>
+</div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/sharlottestyles" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/sharlottestyles" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://wa.me/573042466814" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                <p class="footer-copyright">&copy; 2025 Sharlotte Styles - Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT (DESKTOP) -->
+    <a href="https://wa.me/573042466814" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JAVASCRIPT -->
+    <script src="{{ url_for('static', filename='js/animaciones.js') }}?v=1.1"></script>
+</body>
+</html>

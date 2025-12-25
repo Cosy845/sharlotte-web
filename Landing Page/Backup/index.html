@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sharlotte Styles - Salón de belleza de lujo en Cali. Maquillaje, cortes y tratamientos premium disponibles 24/7.">
+    <meta name="keywords" content="salon de belleza, maquillaje profesional, cortes de cabello, Cali, tratamientos de belleza, spa, barbería">
+    <meta name="author" content="Sharlotte Styles">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sharlotte Styles - Belleza de Lujo 24/7">
+    <meta property="og:description" content="El salón de belleza más exclusivo de Cali. Transformamos tu estilo con técnicas de vanguardia.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/D49098/FFFFFF?text=Sharlotte+Styles">
+    
+    <title>Sharlotte Styles - Belleza de Lujo 24/7 | Salón Premium en Cali</title>
+    
+    <!-- Fonts - MODERNAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- JSON-LD Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "Sharlotte Styles",
+      "description": "Salón de belleza de lujo con atención 24/7 en Cali, Colombia",
+      "url": "https://www.sharlottestyles.com",
+      "telephone": "+573042466814",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle 59 #1c-125, Torres de Comfandi, Torre 5 Apto 503",
+        "addressLocality": "Cali",
+        "addressRegion": "Valle del Cauca",
+        "addressCountry": "CO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "3.3792",
+        "longitude": "-76.5224"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "sameAs": [
+        "https://www.instagram.com/sharlottestyles",
+        "https://www.facebook.com/sharlottestyles"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- CURSOR PERSONALIZADO -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-circle"></div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast">
+        <i class="fab fa-whatsapp"></i>
+        <span>¡Redirigiendo a WhatsApp... 👑!</span>
+    </div>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-icon">👑</div>
+            <div class="loader-text">SHARLOTTE</div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo" aria-label="Ir al inicio de Sharlotte Styles">
+                    <div class="logo-main">SHARLOTTE</div>
+                    <div class="logo-sub">STYLES</div>
+                </a>
+                
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#about" class="nav-link" aria-label="Conocer más sobre nosotros">Nosotros</a></li>
+                        <li><a href="#services" class="nav-link" aria-label="Ver servicios disponibles">Servicios</a></li>
+                        <li><a href="#gallery" class="nav-link" aria-label="Ver galería de trabajos">Galería</a></li>
+                        <li><a href="#contact" class="nav-link" aria-label="Contactar con Sharlotte Styles">Contacto</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="hamburger" id="hamburger" aria-label="Abrir menú de navegación">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80" 
+             alt="Salón de belleza elegante" 
+             class="hero-bg"
+             loading="eager"
+             decoding="async">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Sharlotte Styles</h1>
+            <p class="hero-subtitle">Porque el estilo no tiene horario</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="#contact" class="btn btn-primary" aria-label="Agendar cita ahora">Agenda tu cita</a>
+                <a href="#services" class="btn btn-outline" aria-label="Ver todos los servicios">Ver Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section reveal" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-card-elegant">
+                    <p class="elegant-text">
+                        En Sharlotte, no solo cortamos cabello o maquillamos; 
+                        <span class="highlight">esculpimos confianza</span>. 
+                        Cada cliente recibe un trato de realeza en un ambiente diseñado 
+                        para desconectar del mundo y conectar contigo misma.
+                    </p>
+                </div>
+                
+                <p style="text-align: center; font-size: 1.15rem; line-height: 1.9; max-width: 850px; margin: 0 auto 60px; color: #666;">
+                    Combinamos técnicas de vanguardia internacional con la calidez latina. 
+                    Estamos disponibles <strong style="color: var(--color-rosa-intenso);">24/7</strong> 
+                    porque entendemos que la belleza y las urgencias no tienen horario.
+                </p>
+                
+                <!-- CONTADORES -->
+                <div class="mindset" id="mindset">
+                    <div class="counter-item">
+                        <span class="counter" data-target="500">0</span>
+                        <p class="counter-label">Clientes VIP</p>
+                    </div>
+                    
+                    <div class="counter-item">
+                        <span class="counter" data-target="15">0</span>
+                        <p class="counter-label">Años de Excelencia</p>
+                    </div>
+                    
+                    <div class="counter-item">
+                        <span class="counter" data-target="24">0</span>
+                        <p class="counter-label">Horas de Atención</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services section reveal" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Servicios Premium</h2>
+                <div class="title-underline"></div>
+                <p class="section-description">Diseñados para realzar tu mejor versión</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Maquillaje -->
+                <div class="service-category">
+                    <div class="category-header">
+                        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&q=80" 
+                             alt="Servicios de maquillaje profesional" 
+                             class="category-image"
+                             loading="lazy"
+                             decoding="async">
+                        <div class="category-overlay">
+                            <div class="category-icon">💄</div>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Maquillaje</h3>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check"></i> Social & Fiesta</li>
+                            <li><i class="fas fa-check"></i> Nupcial (Novia)</li>
+                            <li><i class="fas fa-check"></i> Editorial & Fotografía</li>
+                            <li><i class="fas fa-check"></i> Artistic Makeup</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Cabello -->
+                <div class="service-category">
+                    <div class="category-header">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=800&q=80" 
+                             alt="Servicios de peluquería y cortes" 
+                             class="category-image"
+                             loading="lazy"
+                             decoding="async">
+                        <div class="category-overlay">
+                            <div class="category-icon">✂️</div>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Cabello</h3>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check"></i> Cortes de Vanguardia</li>
+                            <li><i class="fas fa-check"></i> Colorimetría Premium</li>
+                            <li><i class="fas fa-check"></i> Tratamientos Intensivos</li>
+                            <li><i class="fas fa-check"></i> Peinados Alta Costura</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Barbería -->
+                <div class="service-category">
+                    <div class="category-header">
+                        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80" 
+                             alt="Servicios de barbería masculina" 
+                             class="category-image"
+                             loading="lazy"
+                             decoding="async">
+                        <div class="category-overlay">
+                            <div class="category-icon">💈</div>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Barbería</h3>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check"></i> Corte Clásico & Fade</li>
+                            <li><i class="fas fa-check"></i> Barba con Navaja</li>
+                            <li><i class="fas fa-check"></i> Diseño de Cejas</li>
+                            <li><i class="fas fa-check"></i> Tratamientos Faciales</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery section reveal" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Galería de Elegancia</h2>
+                <div class="title-underline"></div>
+                <p class="section-description">Resultados reales, belleza real</p>
+            </div>
+            
+            <div class="carousel">
+                <div class="carousel-slide active">
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=1200&q=80" 
+                         alt="Trabajo de belleza premium 1"
+                         loading="lazy"
+                         decoding="async">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=80" 
+                         alt="Trabajo de belleza premium 2"
+                         loading="lazy"
+                         decoding="async">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1200&q=80" 
+                         alt="Trabajo de belleza premium 3"
+                         loading="lazy"
+                         decoding="async">
+                </div>
+                
+                <button class="carousel-btn prev" id="prevBtn" aria-label="Ver imagen anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" id="nextBtn" aria-label="Ver siguiente imagen">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact section reveal" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Agenda tu Cita</h2>
+                <div class="title-underline"></div>
+                <p class="section-description">Completa el formulario y te atenderemos por WhatsApp inmediatamente</p>
+            </div>
+            
+            <div class="contact-wrapper">
+                <!-- Formulario -->
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nombre Completo *</label>
+                        <input type="text" 
+                               id="name" 
+                               name="name" 
+                               placeholder="Ej: María Fernanda"
+                               aria-label="Ingresa tu nombre completo"
+                               required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Servicio Deseado *</label>
+                        <select id="service" 
+                                name="service"
+                                aria-label="Selecciona el servicio que deseas"
+                                required>
+                            <option value="">-- Selecciona --</option>
+                            <option value="Maquillaje Social">Maquillaje Social</option>
+                            <option value="Maquillaje Nupcial">Maquillaje Nupcial</option>
+                            <option value="Corte de Cabello">Corte de Cabello</option>
+                            <option value="Colorimetría">Colorimetría</option>
+                            <option value="Tratamiento Capilar">Tratamiento Capilar</option>
+                            <option value="Barbería">Barbería</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje (Opcional)</label>
+                        <textarea id="message" 
+                                  name="message" 
+                                  placeholder="Cuéntanos qué necesitas..."
+                                  aria-label="Escribe un mensaje opcional"></textarea>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="btn btn-full"
+                            aria-label="Enviar formulario y contactar por WhatsApp">
+                        <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+                    </button>
+                </form>
+                
+                <!-- Información de Contacto -->
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Ubicación</h3>
+                            <p>Calle 59 #1c-125<br>
+                            Torres de Comfandi, Torre 5 Apto 503<br>
+                            Cali, Colombia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3>Teléfonos</h3>
+                            <p><strong>Principal:</strong> +57 304 246 6814<br>
+                            <strong>Secundaria:</strong> +57 305 352 7076</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item premium-highlight">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Horarios</h3>
+                            <p class="highlight-text">⭐ ATENCIÓN 24 HORAS ⭐</p>
+                            <p>Disponibles todos los días</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/sharlottestyles" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           aria-label="Visitar Instagram de Sharlotte Styles">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/sharlottestyles" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           aria-label="Visitar Facebook de Sharlotte Styles">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://wa.me/573042466814" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           aria-label="Contactar por WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <div class="logo-main">SHARLOTTE</div>
+                <div class="logo-sub">STYLES</div>
+                <p class="footer-signature">"Esculpiendo confianza, una cliente a la vez"</p>
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; 2025 Sharlotte Styles. Todos los derechos reservados. | Cali, Colombia
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/573042466814" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar directamente por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
