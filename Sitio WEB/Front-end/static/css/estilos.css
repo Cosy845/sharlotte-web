@@ -1642,11 +1642,6 @@ body.cursor-hover .cursor-dot {
         transition: transform 0.3s ease, box-shadow 0.3s ease !important;
     }
 
-    /* ARREGLO TARJETA MANOS Y PIES 💅 */
-    .service-image img {
-        object-position: center center !important; /* Antes estaba 'top', por eso cortaba las manos */
-    }
-
     /* 1. Volvemos a la Animación Clásica (Solo subir) */
     .info-card:not(.location-card):hover {
         transform: translateY(-5px) !important; /* Sin scale */
@@ -1670,21 +1665,28 @@ body.cursor-hover .cursor-dot {
         transform: translateY(-2px) !important;
         box-shadow: 0 5px 10px rgba(212, 133, 147, 0.1) !important;
     }
+} /* <--- AQUÍ CIERRA EL MODO PC (Línea clave) */
+
+
+/* =================================================================
+   📱 ARREGLOS GLOBALES Y MÓVIL (FUERA DEL MEDIA QUERY)
+   ================================================================= */
+
+/* 1. Arreglo de huecos en móvil */
+.seccion {
+    padding: 50px 0 !important;
 }
 
-/* --- ARREGLO HUECOS Y ESPACIOS EN MÓVIL (V1.1) --- */
-    .seccion {
-        padding: 50px 0 !important; /* Reduce el espacio a la mitad en móviles */
-    }
+.gallery-grid {
+    margin-bottom: 30px !important;
+}
 
-    .gallery-grid {
-        margin-bottom: 30px !important; /* Reduce el hueco debajo de la galería */
-    }
+/* 2. Arreglo banner manos y pies */
+#inicio {
+    background-position: center center !important;
+}
 
-    /* --- ARREGLO BANNER RECORTADO --- */
-    #inicio {
-        /* Centra la imagen para que se vean mejor las manos/pies */
-        background-position: center center !important; 
-        /* Opcional: si sigue muy alta, descomenta la siguiente línea: */
-        /* height: 90vh; */ 
-    }
+/* 3. Arreglo tarjeta de servicios (Manos/Pies cortados) */
+.service-image img {
+    object-position: center center !important;
+}
