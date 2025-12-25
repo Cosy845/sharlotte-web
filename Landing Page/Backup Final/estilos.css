@@ -1,0 +1,1658 @@
+/* ================================================
+   👑 SHARLOTTE STYLES - VERSIÓN FINAL CORREGIDA
+   Paleta: Palo de Rosa + Dorado
+   ================================================ */
+
+   
+:root {
+    /* PALETA PALO DE ROSA */
+    --color-primary: #D48593;      /* Palo de Rosa Intenso */
+    --color-primary-dark: #c26d7c;
+    --color-bg-soft: #FBEAEA;      /* Palo de Rosa Suave */
+    --color-white: #FFFFFF;
+    --color-dark: #1A1A1A;         /* Negro */
+    --color-text: #5A5A5A;
+    --color-gold: #C5A059;         /* Dorado */
+    --color-gold-hover: #B8934D;
+    
+    /* TIPOGRAFÍA */
+    --font-heading: 'Playfair Display', 'Montserrat', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+    --font-script: 'Great Vibes', cursive;
+    
+    /* EFECTOS */
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-soft: 0 4px 15px rgba(212, 133, 147, 0.12);
+    --shadow-medium: 0 8px 30px rgba(212, 133, 147, 0.18);
+    --shadow-strong: 0 12px 40px rgba(0, 0, 0, 0.12);
+
+    /* ================================================
+   ✨ DETALLES DE LUJO (SCROLLBAR & SELECCIÓN)
+   ================================================ */
+
+/* 1. Barra de Scroll Dorada (Solo navegadores modernos) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #fbeaea; /* Fondo rosita */
+}
+::-webkit-scrollbar-thumb {
+    background: #c5a059; /* Barra Dorada */
+    border-radius: 5px;
+    border: 2px solid #fbeaea; /* Borde para que se vea flotante */
+}
+
+/* 2. Selección de Texto (Cuando sombreas con el mouse) */
+::selection {
+    background: #c5a059; /* Dorado */
+    color: white;
+}
+
+/* 3. Eliminar el cuadro azul al tocar en móviles (Tap Highlight) */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+}
+
+
+/* ================================================
+   RESET & BASE
+   ================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg-soft);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+/* ================================================
+   CUSTOM CURSOR
+   ================================================ */
+.custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--color-gold);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+    z-index: 10000;
+}
+
+.cursor-circle {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--color-gold);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+    z-index: 9999;
+}
+
+body.cursor-hover .cursor-circle {
+    width: 70px;
+    height: 70px;
+    border-color: var(--color-primary);
+}
+
+body.cursor-hover .cursor-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--color-primary);
+}
+
+/* ================================================
+   TOAST NOTIFICATION
+   ================================================ */
+/* ================================================
+   TOAST NOTIFICATION (CORREGIDO PARA MÓVIL)
+   ================================================ */
+.toast {
+    position: fixed;
+    top: 20px; /* Lo ponemos en su sitio final de una vez */
+    left: 50%;
+    transform: translateX(-50%) translateY(-150%); /* Lo sacamos hacia arriba con transform */
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-hover) 100%);
+    color: white;
+    padding: 12px 25px; /* Un poco más compacto para móvil */
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(197, 160, 89, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    z-index: 10001;
+    
+    /* LA MAGIA: Invisibilidad total por defecto */
+    visibility: hidden; 
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    width: max-content; /* Para que no se estire raro */
+    max-width: 90%; /* Para que no rompa en pantallas muy pequeñas */
+}
+
+.toast.show {
+    /* Cuando se activa, baja y se vuelve visible */
+    transform: translateX(-50%) translateY(0);
+    visibility: visible;
+    opacity: 1;
+}
+
+.toast i {
+    font-size: 1.5rem;
+    animation: pulse 1s infinite;
+}
+
+/* ================================================
+   PRELOADER
+   ================================================ */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-bg-soft);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-icon {
+    font-size: 4rem;
+    color: var(--color-gold);
+    animation: pulse 1.5s infinite;
+    margin-bottom: 15px;
+}
+
+.loader-text {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--color-dark);
+    letter-spacing: 3px;
+}
+
+/* ================================================
+   UTILITIES
+   ================================================ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--color-dark);
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.title-underline {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-primary));
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.section-description {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: var(--color-text);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ================================================
+   HEADER
+   ================================================ */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 25px 0;
+    transition: var(--transition);
+    background: transparent;
+}
+
+.header.scrolled {
+    background: rgba(251, 234, 234, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-soft);
+    padding: 15px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.logo-main {
+    /* CAMBIA ESTA LÍNEA: usa la variable nueva o pon la fuente directa */
+    font-family: 'Montserrat', sans-serif; 
+    
+    font-size: 2.0rem;
+    font-weight: 900; /* Extra Bold/Black para que se vea gruesa como te gusta */
+    color: var(--color-white);
+    letter-spacing: 1px;
+    transition: var(--transition);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase; /* Opcional: Si quieres que sea MAYÚSCULA SOSTENIDA */
+}
+
+.logo-sub {
+    font-family: var(--font-script); /* Cursiva */
+    font-size: 1.2rem;   /* Más visible */
+    color: var(--color-gold);
+    margin-top: -10px;
+    font-weight: 400;
+}
+
+.header.scrolled .logo-main {
+    color: var(--color-dark);
+    text-shadow: none;
+}
+
+/* NAVEGACIÓN */
+.nav-list {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--color-white);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    padding: 10px 18px;
+    border-radius: 25px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.header:not(.scrolled) .nav-link {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.header:not(.scrolled) .nav-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.header.scrolled .nav-link {
+    color: var(--color-dark);
+    text-shadow: none;
+}
+
+.header.scrolled .nav-link:hover {
+    color: var(--color-primary);
+    background: rgba(212, 133, 147, 0.1);
+}
+
+/* HAMBURGER */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1001;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background-color: #C5A059 !important; /* SIEMPRE NEGRO (Para que se vea la X) */
+    transition: var(--transition);
+    border-radius: 2px;
+}
+
+.header.scrolled .hamburger span {
+    background: var(--color-dark);
+}
+
+/* ================================================
+   HERO SECTION
+   ================================================ */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.15) 30%,
+        rgba(0, 0, 0, 0.45) 100%
+    );
+    z-index: -1;
+}
+
+.hero-content {
+    z-index: 1;
+    max-width: 900px;
+    padding: 0 20px;
+    /* HERO PARALLAX & FADE-OUT */
+    transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+}
+
+.hero-crown {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+    color: var(--color-gold);
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.6);
+    line-height: 1.2;
+    font-style: italic;
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 50px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.hero-cta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ================================================
+   BOTONES
+   ================================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    position: relative;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #C5A059;
+    color: white;
+    box-shadow: 0 6px 20px rgba(212, 133, 147, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(212, 133, 147, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--color-primary);
+    transform: translateY(-4px);
+}
+
+.btn-outline:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* ================================================
+   ABOUT SECTION
+   ================================================ */
+.about {
+    background: linear-gradient(
+        180deg,
+        var(--color-bg-soft) 0%,
+        #FFFFFF 50%,
+        var(--color-bg-soft) 100%
+    );
+}
+
+.about-content {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.about-card {
+    text-align: center !important; /* Forza el centrado */
+    background: white;
+    padding: 60px 50px;
+    margin-bottom: 60px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-medium);
+    border-top: 5px solid var(--color-gold);
+    transition: var(--transition);
+}
+
+/* Para la frase "Esculpiendo confianza..." del footer */
+.footer-signature {
+    font-family: 'Great Vibes', cursive !important;
+    font-size: 1.5rem;
+    color: #999;
+    margin-top: 15px;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-strong);
+}
+
+.about-title {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--color-dark);
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.about-text {
+    font-size: 1.15rem;
+    line-height: 2;
+    color: #666;
+    text-align: center;
+}
+
+.accent-text {
+    display: block;
+    color: var(--color-primary);
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+/* ================================================
+   CONTADORES
+   ================================================ */
+.mindset {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.counter-item {
+    text-align: center;
+    padding: 40px 30px;
+    background: white;
+    border-radius: 18px;
+    border: 2px solid var(--color-gold);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.counter-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-primary));
+    border-radius: 0 0 10px 10px;
+}
+
+.counter-item:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-strong);
+    border-color: var(--color-primary);
+}
+
+.counter-icon {
+    font-size: 3rem;
+    color: var(--color-gold);
+    margin-bottom: 15px;
+}
+
+.counter-value {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 10px;
+}
+
+.counter {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--color-dark);
+    line-height: 1;
+}
+
+.counter-plus {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-left: 3px;
+}
+
+.counter-label {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: #999;
+    font-weight: 600;
+}
+
+/* ================================================
+   SERVICIOS SECTION
+   ================================================ */
+.services {
+    background: white;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+}
+
+.service-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: var(--shadow-soft);
+    border-bottom: 4px solid var(--color-primary);
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-strong);
+    border-bottom-color: var(--color-gold);
+}
+
+.service-image {
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-image img {
+    transform: scale(1.1);
+}
+
+.service-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(212,133,147,0.4));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.service-card:hover .service-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(197,160,89,0.5));
+}
+
+.service-overlay i {
+    font-size: 3.5rem;
+    color: white;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+}
+
+.service-body {
+    padding: 30px 25px;
+}
+
+.service-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+.service-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(212, 133, 147, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-text);
+    transition: var(--transition);
+}
+
+.service-list li:hover {
+    color: var(--color-primary);
+    padding-left: 8px;
+}
+
+.service-list i {
+    color: var(--color-gold);
+    font-size: 0.9rem;
+}
+
+/* ================================================
+   GALERÍA
+   ================================================ */
+.gallery {
+    background: var(--color-bg-soft);
+}
+
+.carousel-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.carousel {
+    position: relative;
+    height: 550px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-strong);
+    border: 3px solid var(--color-gold);
+}
+
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: var(--color-dark);
+    z-index: 10;
+    font-size: 1.3rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+}
+
+.carousel-btn:hover {
+    background: var(--color-gold);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3);
+}
+
+.prev {
+    left: 25px;
+}
+
+.next {
+    right: 25px;
+}
+
+/* =========================================================================
+   CONTACT SECTION (SOLUCIÓN FINAL: STRETCH + FLEX GROW) 🏆
+   ========================================================================= */
+.contact {
+    background: linear-gradient(135deg, var(--color-bg-soft) 0%, #ffffff 100%);
+    padding: 100px 0;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: stretch; /* CLAVE 1: Ambas tarjetas miden lo mismo de alto (sin hueco abajo) */
+}
+
+/* --- FORMULARIO --- */
+.contact-form {
+    background: white;
+    padding: 40px; /* Buen espacio interno */
+    border-radius: 20px;
+    box-shadow: var(--shadow-medium);
+    border-top: 5px solid var(--color-gold);
+    transition: var(--transition);
+    
+    /* ESTRUCTURA FLEXIBLE */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ocupa toda la altura disponible */
+    justify-content: flex-start; /* Todo pegado arriba al principio */
+    gap: 15px; /* Espacio pequeño y ordenado entre inputs */
+}
+
+.contact-form:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-strong);
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+/* 🔥 EL TRUCO DE MAGIA: Hacemos que el campo de MENSAJE (el 3ro) crezca */
+.form-group:nth-of-type(3) {
+    flex-grow: 1; /* Esto empuja el botón al fondo y rellena el hueco vacío */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: var(--color-dark);
+    font-size: 0.95rem;
+}
+
+.required { color: var(--color-primary); }
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid rgba(212, 133, 147, 0.15);
+    border-radius: 10px;
+    font-family: var(--font-body);
+    background: #FAFAFA;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    color: var(--color-text);
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(212, 133, 147, 0.1);
+    background: white;
+}
+
+.form-group textarea {
+    resize: none;
+    font-family: var(--font-body);
+    height: 100%; /* El textarea llena el espacio que le dimos con flex-grow */
+    min-height: 120px; /* Altura mínima para que no se vea feo */
+}
+
+/* BOTÓN WHATSAPP */
+.contact-form .btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    font-size: 1rem;
+    margin-top: 10px;
+    /* Al estar abajo del flex-grow, siempre quedará al final de la tarjeta */
+}
+
+
+/* ================================================
+   COLUMNA DERECHA: PROPORCIÓN ÁUREA (2:1:1)
+   ================================================ */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%; /* Ocupa el mismo alto que el formulario */
+}
+
+/* --- ESTILO BASE DE TARJETAS --- */
+.info-card {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-soft);
+    border-left: 4px solid var(--color-primary);
+    
+    /* ANIMACIÓN PREMIUM (Estable) */
+    position: relative;
+    overflow: hidden; 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Suave pero firme */
+    cursor: default;
+    
+    /* CENTRADO DE CONTENIDO */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* --- TAMAÑOS EN PC (EL EQUILIBRIO REAL) --- */
+
+/* 1. MAPA (JEFE, PERO NO TIRANO) */
+/* flex: 2 significa que ocupa el 50% del espacio vertical total */
+.location-card {
+    flex: 2.1; 
+    justify-content: flex-start; /* Contenido pegado arriba */
+}
+
+/* 2. TELÉFONO Y HORARIOS */
+/* flex: 1 significa que ocupan el 25% cada una */
+.info-card:not(.location-card) {
+    flex: 1; 
+}
+
+/* --- EL MAPA INTERNO --- */
+.map-container {
+    width: 100%;
+    height: 100%; /* Llena el espacio de su tarjeta */
+    min-height: 180px; /* Tamaño mínimo de seguridad */
+    margin-top: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* --- ANIMACIONES SIN GLITCH --- */
+.info-card:hover {
+    transform: translateY(-5px); /* Solo sube, NO escala (esto evita el tembleque) */
+    box-shadow: 0 15px 30px rgba(212, 133, 147, 0.2);
+    border-left-color: var(--color-gold);
+}
+
+.info-card:active {
+    transform: translateY(-2px); /* Baja un poquito al clic */
+    box-shadow: 0 5px 10px rgba(212, 133, 147, 0.2);
+    transition: 0.1s ease;
+}
+
+/* Brillo Sutil (Sin afectar layout) */
+.info-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 100%);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+    pointer-events: none;
+}
+.info-card:hover::after { left: 100%; }
+
+/* Iconos */
+.info-card:hover i {
+    transform: scale(1.1) rotate(5deg); /* Movimiento pequeño y seguro */
+    color: var(--color-primary);
+    transition: 0.3s ease;
+}
+
+/* TEXTOS E ICONOS (Estilo PC por defecto) */
+.location-header { 
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start; /* <--- PC: Alineado a la izquierda */
+    gap: 15px; 
+    margin-bottom: 5px; 
+}
+
+.location-header i { font-size: 1.5rem; color: var(--color-gold); margin: 0; }
+.location-header h3 { margin: 0; font-size: 1.3rem; font-family: var(--font-heading); font-weight: 700; color: var(--color-dark); }
+
+.map-link { 
+    font-size: 0.85rem; 
+    color: var(--color-primary); 
+    display: block; 
+    margin-top: 8px; 
+    font-weight: 600; 
+    text-align: right; /* <--- PC: El enlace se ve mejor a la derecha */
+}
+
+.info-card h3 { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-dark); margin-bottom: 8px; }
+.info-card i { font-size: 2rem; color: var(--color-gold); margin-bottom: 10px; display: block; }
+.location-header i { display: inline-block; margin-bottom: 0; }
+.info-card.premium { border: 2px solid var(--color-gold); border-left: 4px solid var(--color-gold); background: linear-gradient(135deg, white 0%, rgba(251, 234, 234, 0.5) 100%); }
+.social-links { display: flex; gap: 15px; justify-content: center; margin-top: 10px; }
+
+/* ================================================
+   FOOTER
+   ================================================ */
+.footer {
+    background: linear-gradient(135deg, #2A2A2A 0%, #1A1A1A 100%);
+    color: white;
+    padding: 70px 0 25px;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-logo {
+    margin-bottom: 30px;
+}
+
+.footer-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0;
+}
+
+.footer-subtitle {
+    font-family: var(--font-script);
+    font-size: 1.4rem;
+    color: var(--color-gold);
+    margin: 5px 0 0 0;
+}
+
+.footer-tagline {
+    font-style: italic;
+    color: #999;
+    margin-top: 12px;
+    font-size: 1rem;
+}
+
+.footer-copyright {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* ================================================
+   WHATSAPP FLOAT
+   ================================================ */
+.whatsapp-float {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-hover) 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 0 8px 25px rgba(197, 160, 89, 0.3);
+    z-index: 1000;
+    animation: pulse 2s infinite;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 12px 35px rgba(197, 160, 89, 0.4);
+}
+
+/* ================================================
+   STICKY BOTTOM BAR (MÓVIL)
+   ================================================ */
+.mobile-sticky-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    padding: 10px 12px;
+    gap: 10px;
+}
+
+.sticky-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 14px 15px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.75rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+}
+
+.sticky-whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.sticky-whatsapp:active {
+    background: #20BA5A;
+    transform: scale(0.95);
+}
+
+.sticky-booking {
+    background: var(--color-primary);
+    color: white;
+}
+
+.sticky-booking:active {
+    background: var(--color-primary-dark);
+    transform: scale(0.95);
+}
+
+.sticky-btn i {
+    font-size: 1.3rem;
+}
+
+/* ================================================
+   ANIMACIONES
+   ================================================ */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 8px 25px rgba(197, 160, 89, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(197, 160, 89, 0.4);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 8px 25px rgba(197, 160, 89, 0.3);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================================
+   🃏 FIX: TARJETAS DE IGUAL TAMAÑO (GRID PERFECTO)
+   ================================================ */
+/* Esto hace que todas las tarjetas se estiren al mismo alto */
+.services-grid, 
+.contact-wrapper, 
+.mindset {
+    display: grid;
+    /* Ajuste automático: mínimo 300px, si no cabe, baja */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: stretch; /* ESTO ES LA CLAVE: Estira las tarjetas */
+}
+
+.service-card, 
+.info-card, 
+.counter-item {
+    height: 100%; /* Ocupa todo el alto disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye el contenido */
+}
+
+.service-body, 
+.counter-value {
+    flex-grow: 1; /* Empuja el contenido para llenar espacio vacío */
+}
+
+/* ================================================
+   📱 RESPONSIVE FINAL (Alineación Correcta)
+   ================================================ */
+
+/* TABLETS Y MÓVILES (Menos de 992px) */
+@media (max-width: 992px) {
+    
+    /* 1. LIMPIEZA */
+    .custom-cursor { display: none !important; }
+    body { cursor: auto !important; }
+    
+    /* 2. MENÚ DE NAVEGACIÓN */
+    .nav {
+        position: fixed;
+        top: 0; left: -100%; width: 100%; height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 80px 20px;
+        transition: 0.4s ease;
+        z-index: 999;
+        display: flex; flex-direction: column; align-items: center;
+        overflow-y: auto;
+    }
+    .nav.active { left: 0; }
+    .nav-list { flex-direction: column; gap: 20px; text-align: center; }
+    .hamburger { display: flex; }
+
+    /* 3. ALINEACIÓN CENTRADA (TÍTULOS Y TARJETAS) */
+    .hero-content, .section-header, .about-card, .contact-info, .footer-content {
+        text-align: center !important;
+    }
+
+    /* 4. ALINEACIÓN IZQUIERDA (LISTAS DE SERVICIOS - CRUCIAL) */
+    /* Esto arregla el desorden de "Acrílicas". Todo alineado a la izquierda */
+    .service-body {
+        text-align: left !important; 
+        padding: 0 10px;
+    }
+    
+    .service-list li {
+        justify-content: flex-start !important; /* Icono y texto pegados a la izquierda */
+        text-align: left !important;
+        padding-left: 0;
+    }
+
+    /* 5. COLUMNAS */
+    .contact-wrapper, .services-grid, .mindset {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+    }
+
+    /* 6. BOTÓN WHATSAPP DEL FORMULARIO (FULL ANCHO) */
+    .contact-form .btn {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        padding: 15px;
+    }
+
+    /* 7. REDES SOCIALES CENTRADAS */
+    .social-links {
+        justify-content: center !important;
+        margin-bottom: 20px;
+    }
+
+    /* 8. AJUSTES GENERALES */
+    .container { padding: 0 20px; }
+    .about-card, .service-card, .contact-form, .info-card {
+        margin-bottom: 20px;
+        width: 100%; /* Asegura que usen todo el ancho */
+    }
+    
+    /* 9. BOTÓN FLOTANTE */
+    .whatsapp-float {
+        width: 55px; height: 55px;
+        bottom: 20px; right: 20px;
+        font-size: 2rem;
+    }
+    /* EN MÓVIL VOLVEMOS A UNA COLUMNA */
+    .mindset {
+        grid-template-columns: 1fr !important; 
+    }
+    /* =========================================
+       FIX CRÍTICO: TARJETAS DE CONTACTO EN MÓVIL
+       ========================================= */
+/* =========================================
+       FIX OBLIGATORIO MÓVIL (Las tarjetas se apilan)
+       ========================================= */
+    .contact-wrapper {
+        display: block !important; /* Rompe el grid de 2 columnas */
+    }
+
+    .contact-form {
+        margin-bottom: 40px; /* Espacio entre formulario y tarjetas */
+    }
+
+    .contact-info {
+        height: auto !important; /* Deja de intentar llenar altura */
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px;
+    }
+
+    .info-card {
+        width: 100% !important;
+        flex: none !important; /* Desactiva proporciones de PC */
+        height: auto !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Mapa en móvil con altura fija decente */
+    .map-container {
+        height: 250px !important; 
+        min-height: 250px !important;
+    }
+}
+
+/* MÓVILES PEQUEÑOS */
+@media (max-width: 480px) {
+    .hero-title { font-size: 2.5rem !important; }
+    .hero-subtitle { font-size: 1rem !important; }
+    .section-title { font-size: 2rem !important; }
+    
+    /* Asegurar que nada se salga */
+    html, body { overflow-x: hidden; width: 100%; }
+}
+
+/* FORMULARIO SIMÉTRICO Y RELLENO */
+.contact-form {
+    background: white;
+    padding: 40px; /* Un poco más de aire alrededor */
+    border-radius: 20px;
+    box-shadow: var(--shadow-medium);
+    border-top: 5px solid var(--color-gold);
+    transition: var(--transition);
+    
+    /* MAGIA: Esto hace que ocupe todo el alto disponible */
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye los elementos uniformemente */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Aumentamos un poco el espacio entre inputs */
+    width: 100%;
+}
+
+.form-group:last-of-type {
+    margin-bottom: 0; /* El último no necesita margen */
+}
+
+/* Inputs más "llenitos" */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 14px 16px; /* Más cómodos */
+    background: #FAFAFA; /* Un gris muy sutil para dar cuerpo */
+}
+
+/* BOTÓN DE WHATSAPP FULL ANCHO SIEMPRE */
+.contact-form .btn {
+    width: 100% !important; /* Ocupa todo el ancho disponible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 1rem;
+}
+
+
+/* ================================================
+   FIX FINAL: CONTADORES ALINEADOS (PC)
+   ================================================ */
+
+/* En PC, obligamos a que sean 3 columnas sí o sí */
+.mindset {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important; /* FUERZA 3 COLUMNAS */
+    gap: 30px;
+    width: 100%;
+}
+
+/* Reducimos un poco las redes sociales (Más elegantes) */
+.social-links a {
+    width: 40px !important;   /* Antes era 50px */
+    height: 40px !important;
+    font-size: 1rem !important; /* Icono más delicado */
+    margin: 0 5px; /* Espacio entre ellas */
+}
+
+/* ================================================
+   ANIMACIÓN HAMBURGUESA (INTELIGENTE)
+   ================================================ */
+/* Estado Normal (3 Rayas): Blancas por defecto para verse en el Hero */
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background-color: #FFFFFF; /* BLANCO INICIALMENTE */
+    transition: var(--transition);
+    border-radius: 2px;
+}
+
+/* Estado Scrolled (Cuando bajas): Se vuelven Negras */
+.header.scrolled .hamburger span {
+    background-color: #000000;
+}
+
+/* Estado Activo (La X): SIEMPRE NEGRA (porque el fondo del menú es blanco) */
+.hamburger.active span {
+    background-color: #C5A059!important; 
+}
+
+/* Animación de Transformación a X */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* ================================================
+   📱 RESPONSIVE MAESTRO (SOLO PARA MÓVIL Y TABLET)
+   ================================================ */
+/* ¡OJO! Todo lo que esté aquí adentro SOLO afecta al celular. 
+   El PC quedará intacto con sus 3 columnas. */
+
+@media (max-width: 992px) {
+    
+    /* 1. ARREGLO DE COLUMNAS (El error garrafal corregido) */
+    .mindset, 
+    .contact-wrapper, 
+    .services-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* MÓVIL: 1 Columna */
+        width: 100% !important;
+        gap: 40px;
+    }
+
+    /* Aseguramos que las tarjetas ocupen todo el ancho en celular */
+    .counter-item, 
+    .info-card, 
+    .service-card {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* 2. MENÚ MÓVIL */
+    .nav {
+        position: fixed;
+        top: 0; left: -100%; width: 100%; height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 100px 20px;
+        transition: 0.4s ease;
+        z-index: 999;
+        display: flex; flex-direction: column; align-items: center;
+        overflow-y: auto;
+    }
+    .nav.active { left: 0; }
+    .nav-list { flex-direction: column; gap: 25px; text-align: center; }
+    .hamburger { display: flex; }
+
+    /* 3. ALINEACIONES */
+    .hero-content, .section-header, .about-card, .footer-content {
+        text-align: center !important;
+    }
+    
+    /* Listas a la izquierda (Acrílicas...) */
+    .service-body { text-align: left !important; padding: 0 10px; }
+    .service-list li { justify-content: flex-start !important; text-align: left !important; }
+
+    /* 4. BOTONES Y REDES */
+    .contact-form .btn { width: 100% !important; justify-content: center; }
+    .social-links { justify-content: center !important; margin-bottom: 20px; }
+    
+    /* 5. LIMPIEZA */
+    .custom-cursor { display: none !important; }
+    body { cursor: auto !important; padding-bottom: 0 !important; }
+    
+    /* 6. BOTÓN WHATSAPP FLOTANTE */
+    .whatsapp-float {
+        width: 60px; height: 60px;
+        bottom: 20px; right: 20px;
+    }
+    /* =========================================
+       FIX DE IMÁGENES MÓVIL (Proporción Perfecta)
+       ========================================= */
+
+    /* =========================================
+       FIX CENTRADO UBICACIÓN (SOLO MÓVIL)
+       ========================================= */
+    .location-card {
+        text-align: center !important; /* Centra el texto de la dirección */
+    }
+
+    .location-header {
+        justify-content: center !important; /* Centra el título "Ubicación" */
+    }
+
+    .map-link {
+        text-align: center !important; /* Centra el enlace "Ver en Maps" */
+    }
+    
+    /* 1. CARRUSEL MÁS CORTO EN MÓVIL */
+    /* Antes media 550px, en celular es demasiado. Lo bajamos. */
+    .carousel {
+        height: 300px !important; /* Altura ideal para celular */
+        border-radius: 15px;
+    }
+    
+    /* 2. FOTOS DE SERVICIOS */
+    /* Ajustamos para que no corten tanto la imagen */
+    .service-image {
+        height: 220px !important; /* Un poco más bajitas para dar espacio al texto */
+    }
+    
+    .service-image img {
+        object-position: center top; /* Enfoca las caras/cabezas, no el pecho */
+    }
+
+    /* 3. HERO (IMAGEN DE FONDO) */
+    /* Aseguramos que la modelo se vea bien */
+    .hero-bg {
+        object-position: 65% center; /* Mueve la foto un poco para centrar al sujeto en móvil */
+    }
+    /* =========================================
+       FIX FINAL: BOTONES CARRUSEL MÓVIL
+       ========================================= */
+    .carousel-btn {
+        width: 35px !important;  /* Más pequeñitos */
+        height: 35px !important;
+        font-size: 0.9rem !important; /* Flecha más fina */
+        background: rgba(255, 255, 255, 0.7) !important; /* Más transparentes */
+        backdrop-filter: blur(2px); /* Efecto vidrio */
+        top: 50% !important;
+        transform: translateY(-50%) !important; /* Centrado vertical perfecto */
+    }
+
+    .prev { left: 10px !important; }  /* Pegadito al borde izquierdo */
+    .next { right: 10px !important; } /* Pegadito al borde derecho */
+}
+
+/* MÓVILES PEQUEÑOS */
+@media (max-width: 480px) {
+    .hero-title { font-size: 2.8rem !important; }
+    .section-title { font-size: 2rem !important; }
+    html, body { overflow-x: hidden; width: 100%; }
+}
+
+/* ================================================
+   FIX FOOTER (CÍRCULOS DORADOS)
+   ================================================ */
+.footer .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.footer .social-links a {
+    width: 45px;
+    height: 45px;
+    background: var(--color-gold) !important; /* FORZAMOS EL DORADO */
+    color: white !important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    text-decoration: none;
+}
+
+.footer .social-links a:hover {
+    background: var(--color-primary) !important; /* Rosa al pasar el mouse */
+    transform: translateY(-5px);
+}
+
+/* =================================================================
+   🩹 FIX PC: ESTABILIZADOR DE TARJETAS (SOLO TELÉFONO Y HORARIOS)
+   ================================================================= */
+@media (min-width: 993px) {
+    /* Seleccionamos las tarjetas que NO son de ubicación */
+    .info-card:not(.location-card) {
+        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    }
+
+    /* 1. Volvemos a la Animación Clásica (Solo subir) */
+    .info-card:not(.location-card):hover {
+        transform: translateY(-5px) !important; /* Sin scale */
+        box-shadow: 0 10px 20px rgba(212, 133, 147, 0.2) !important;
+        border-left-color: var(--color-gold) !important;
+    }
+
+    /* 2. El icono se queda quieto (Solo cambia de color) */
+    .info-card:not(.location-card):hover i {
+        transform: none !important; /* Adiós rotación loca */
+        color: var(--color-primary) !important;
+    }
+
+    /* 3. Quitamos el brillo (Shine) para limpiar el renderizado */
+    .info-card:not(.location-card)::after {
+        display: none !important;
+    }
+
+    /* 4. Clic sólido y estable */
+    .info-card:not(.location-card):active {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 5px 10px rgba(212, 133, 147, 0.1) !important;
+    }
+}

@@ -73,21 +73,15 @@ magneticButtons.forEach(btn => {
 });
 
 // ================================================
-// 3️⃣ PRELOADER BLINDADO (SOLUCIÓN PANTALLA NEGRA)
+// 3️⃣ PRELOADER
 // ================================================
-const hidePreloader = () => {
+window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
-    if (preloader) {
+    setTimeout(() => {
         preloader.style.opacity = '0';
         preloader.style.visibility = 'hidden';
-    }
-};
-
-// Intento 1: Carga normal
-window.addEventListener('load', hidePreloader);
-
-// Intento 2 (SEGURIDAD): Si en 2.5 segs no ha cargado, abre a la fuerza
-setTimeout(hidePreloader, 2500);
+    }, 800);
+});
 
 // ================================================
 // 4️⃣ HEADER GLASSMORPHISM + PARALLAX HERO
