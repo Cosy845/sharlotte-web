@@ -86,8 +86,8 @@ const hidePreloader = () => {
 // Intento 1: Carga normal
 window.addEventListener('load', hidePreloader);
 
-// Intento 2 (SEGURIDAD): Si en 2.5 segs no ha cargado, abre a la fuerza
-setTimeout(hidePreloader, 2500);
+// Intento 2 (SEGURIDAD): Si en 1.0 segs no ha cargado, abre a la fuerza
+setTimeout(hidePreloader, 1000);
 
 // ================================================
 // 4️⃣ HEADER GLASSMORPHISM + PARALLAX HERO
