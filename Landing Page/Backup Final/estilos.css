@@ -1655,4 +1655,28 @@ body.cursor-hover .cursor-dot {
         transform: translateY(-2px) !important;
         box-shadow: 0 5px 10px rgba(212, 133, 147, 0.1) !important;
     }
+} /* <--- AQUÍ SE CIERRA EL MEDIA QUERY DE PC. ¡ESTA ERA LA LLAVE QUE FALTABA! */
+
+
+/* =================================================================
+   📱 ARREGLOS GLOBALES Y MÓVIL (FUERA DEL MEDIA QUERY)
+   ================================================================= */
+
+/* 1. Arreglo de huecos en móvil */
+.seccion {
+    padding: 50px 0 !important;
+}
+
+.gallery-grid {
+    margin-bottom: 30px !important;
+}
+
+/* 2. Arreglo banner manos y pies */
+#inicio {
+    background-position: center center !important;
+}
+
+/* 3. Arreglo tarjeta de servicios (Manos/Pies cortados) */
+.service-image img {
+    object-position: center center !important;
 }
