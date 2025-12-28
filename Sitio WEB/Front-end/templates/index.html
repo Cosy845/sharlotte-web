@@ -86,7 +86,11 @@
         <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80" alt="Salón de belleza" class="hero-bg">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="hero-crown"><i class="fas fa-crown"></i></div>
+            <div class="hero-crown">
+    <img src="{{ url_for('static', filename='images/favicon.png') }}" 
+         alt="Corona Sharlotte" 
+         class="hero-logo-img">
+</div>
             <h1 class="hero-title">Tu belleza es nuestra corona</h1>
             <p class="hero-subtitle">Servicio exclusivo 24/7 en Cali. Porque el estilo no tiene horario.</p>
             <div class="hero-cta">

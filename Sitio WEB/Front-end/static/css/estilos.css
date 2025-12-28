@@ -436,6 +436,15 @@ body.cursor-hover .cursor-dot {
     color: var(--color-gold);
 }
 
+/* Clase para el logo central (La S Dorada) */
+.hero-logo-img {
+    width: 90px;               /* Tamaño perfecto */
+    height: auto;
+    display: inline-block;
+    filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.5)); /* El brillo mágico */
+    vertical-align: middle;
+}
+
 .hero-title {
     font-family: var(--font-heading);
     font-size: 4.5rem;
